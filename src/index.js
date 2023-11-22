@@ -9,29 +9,38 @@ import {
     Routes,
     Route
 } from "react-router-dom";
+import {navBarItems} from "./components/Navbar/NavBar.Items";
 import Authentication from "./pages/Authentication/Authentication";
-import Products from "./pages/Products/products";
 
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
 
-
+const DynamicRoutes = () => {
+    let allRoutes = navBarItems.map((item) => (
+        <Route
+            key={item.path}
+            path={item.path}
+            element={
+                item.component
+            }
+        />
+    ));
+    return (
+        <Routes>
+            <Route path={'/'} element={<App/>}>
+                {allRoutes}
+                <Route path={'Authentication'} element={<Authentication/>}/>
+            </Route>
+        </Routes>
+    );
+};
 
 root.render(
     <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<App />}>
-                        <Route path="authentication" element={<Authentication />} />
-                    <Route path="products" element={<Products />} />
-                    {/*<Route path="functions" element={<Functions />} />*/}
-                    {/*<Route path="hosting" element={<Hosting />} />*/}
-                    {/*<Route path="machine-learning" element={<MachineLearning />} />*/}
-                    {/*<Route path="storage" element={<Storage />} />*/}
-                </Route>
-            </Routes>
+            <DynamicRoutes/>
         </BrowserRouter>,
     </ThemeProvider>,
 );

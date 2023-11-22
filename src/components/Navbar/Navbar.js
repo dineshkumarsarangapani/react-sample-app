@@ -31,6 +31,14 @@ const Navbar = () => {
             // onKeyDown={}
         >
             <List>
+                <ListItem  key="home" disablePadding>
+                    <ListItemButton onClick={() => navigate('/')}>
+                        <ListItemIcon sx={navbarStyles.icons}>
+                            <InboxIcon />
+                        </ListItemIcon>
+                        <ListItemText sx={navbarStyles.text} primary="Home" />
+                    </ListItemButton>
+                </ListItem>
                 {navBarItems.map((item, index) => (
                     <ListItem  key={item.label} disablePadding>
                         <ListItemButton onClick={() => navigate(item.path)}>
