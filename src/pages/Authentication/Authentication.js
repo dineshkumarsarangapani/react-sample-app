@@ -31,10 +31,10 @@ const Authentication = () => {
                     );
                 });
                 setUsers(filteredData)
-            };
+            }
         };
 
-        const addUser = () => {
+        const addUserForm = () => {
             setOpen(true);
         };
 
@@ -48,7 +48,7 @@ const Authentication = () => {
                 <Box>
                     <CommonButton
                         variant="contained"
-                        onClick={addUser}
+                        onClick={addUserForm}
                         size="large"
                         sx={cardHeaderStyles.addUserButton}
                     >

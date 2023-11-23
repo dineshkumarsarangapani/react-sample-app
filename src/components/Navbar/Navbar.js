@@ -1,17 +1,14 @@
 import {
     Box,
-    Button,
-    Divider, Drawer,
+    Drawer,
     List,
     ListItem,
     ListItemButton,
     ListItemIcon,
     ListItemText,
-    SwipeableDrawer
 } from "@mui/material";
 import React from "react";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import {navBarItems} from "./NavBar.Items";
 import {navbarStyles} from "./styles";
 import {useNavigate} from "react-router";
